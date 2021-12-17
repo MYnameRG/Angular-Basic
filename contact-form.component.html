@@ -1,0 +1,48 @@
+<!-- <form>
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input required minlength="3" maxlength="10" type="text" ngModel name="firstName" #firstName="ngModel" class="form-control" id="firstName">
+    <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+      <div *ngIf="firstName.errors">FirstName is required.</div>
+      <div *ngIf="firstName.errors">FirstName should be minimum 3 characters.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea id="comment" ngModel name="comment" cols="30" rows="10" class="form-control"></textarea>
+  </div>
+  <button class="btn btn-primary">Submit</button>
+</form> -->
+
+<form #f="ngForm" (ngSubmit)="submit(f)">
+  <div ngModelGroup="contact">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input required minlength="3" maxlength="10" type="text" ngModel name="firstName" #firstName="ngModel" class="form-control" id="firstName">
+      <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+        <div *ngIf="firstName.errors?.['required']">FirstName is required.</div>
+        <div *ngIf="firstName.errors?.['minlength']">FirstName should be minimum 3 characters.</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea id="comment" ngModel name="comment" cols="30" rows="10" class="form-control"></textarea>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ngModel name="isSubscribed"> Subscribe to mailing
+    </label>
+  </div>
+  <div class="form-group">
+    <label for="contactMethod">Contact Method</label>
+    <select name="contactMethod" ngModel id="contactMethod" class="form-control">
+      <option value="">Select the Method</option>
+      <option *ngFor="let method of contactMethods" [ngValue]="method">{{ method.name }}</option>
+    </select>
+  </div>
+  <p>{{
+    f.value | json
+  }}</p>
+  <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+</form>

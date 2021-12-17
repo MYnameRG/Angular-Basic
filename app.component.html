@@ -1,0 +1,169 @@
+<!-- <div class="likes">
+  <div class="show">{{ _likes }}</div>
+  <button (click)="count()">{{ _select ? 'Unlike': 'Like' }}</button>
+</div> -->
+
+<!-- <h1>{{ _title | lowercase | uppercase }}</h1> -->
+
+<!-- textContent is the Property not a attribute -->
+<!-- <h1 textContent='{{ _title }}'></h1> -->
+
+<!-- if use as a attribute, its not print -->
+<!-- <h1 textContent='Hiiii'></h1> -->
+
+<!-- Property Binding (Useless) -->
+<!-- <h1 [textContent]='_title'></h1> -->
+
+<!-- Property Binding (Useful) -->
+<!-- <img [src]='_imageURL' />
+
+<courses></courses>
+
+<app-authors-h></app-authors-h> -->
+
+<!-- Attribute Binding -->
+
+<!-- Here, we use property binding but gives an error -->
+<!-- <table>
+  <tr>
+    <td [colspan]="_colspan">spjj</td>
+  </tr>
+</table> -->
+
+<!-- M1 -->
+<!-- <table>
+  <tr>
+    <td [attr.colspan]="_colspan">spjj</td>
+  </tr>
+</table> -->
+
+<!-- M2 -->
+<!-- <table>
+  <tr>
+    <td [colSpan]="_colspan">spjj</td>
+  </tr>
+</table> -->
+
+<!-- Class Binding -->
+<!-- <button class="btn btn-primary" [class.active]='isActive'>Save</button> -->
+
+<!-- Style Binding -->
+<!-- <button [style.backgroundColor]="isActive ? 'blue' : 'red'">Save</button> -->
+
+<!-- Event Binding -->
+<!-- <button (click)="onSave($event)">Click</button> -->
+
+<!-- Event Bubbling -->
+<!-- <div (click)="onSave($event)">
+  <button (click)="onSave($event)">Event Bubble</button>
+</div> -->
+
+<!-- Event Filtering -->
+<!-- Traditional start -->
+<!-- <input (keyup)="onKeyUp($event)"> -->
+
+<!-- Smart start -->
+<!-- <input (keyup.enter)="onKeyUp()"> -->
+
+<!-- Template Variable -->
+<!-- <input #email (keyup.enter)="onKeyUp(email.value)"> -->
+
+<!-- Cleaner way (Template Variable) -->
+<!-- <input [value]='email' (keyup.enter)="onKeyUp()"> -->
+
+<!-- 2-way Binding (ngModel -- it is directive for manipulation of the dom element) -->
+<!-- <input [value]='email' (keyup.enter)="email= $event.target.value; onKeyUp()"> -->
+<!-- <input [(ngModel)]='email' (keyup.enter)="onKeyUp()" /> -->
+
+<!-- Custom Pipes -->
+<!-- {{ text | summary: 200 }} -->
+
+<!-- Output/Input Properties -->
+<!-- <app-favourite [isFavorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></app-favourite> -->
+
+<!-- <app-titlecase></app-titlecase> -->
+
+<!-- ngContent -->
+<!-- <app-bootstrap-panel>
+  <ng-container class="heading">Heading</ng-container>
+  <ng-container class="body">Body</ng-container>
+</app-bootstrap-panel> -->
+
+<!-- <app-like [likesCount]="like.likesCount" [isActive]="like.isLiked" ></app-like> -->
+
+<!-- ngIf -->
+<!-- <div *ngIf="courses.length > 0; else noCourses">
+  List Of courses
+</div>
+<ng-template #noCourses>
+  No courses yet
+</ng-template> -->
+
+<!-- <div *ngIf="courses.length > 0; then courseList else noCourses"></div>
+<ng-template #courseList>
+  List Of courses
+</ng-template>
+<ng-template #noCourses>
+  No courses yet
+</ng-template> -->
+
+<!-- Hidden property -->
+<!-- <div [hidden]="courses.length == 0">
+  List Of courses
+</div>
+<div [hidden]="courses.length > 0">
+  No courses yet
+</div> -->
+
+<!-- ngSwitch -->
+<!-- <ul class="nav nav-pills">
+  <li [class.active]="viewMode == 'map'"><a (click)="viewMode = 'map'">Map View</a></li>
+  <li [class.active]="viewMode == 'list'"><a (click)="viewMode = 'list'">List View</a></li>
+</ul>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map View Content</div>
+  <div *ngSwitchCase="'list'">List View Content</div>
+  <div *ngSwitchDefault>Otherwise</div>
+</div> -->
+
+<!-- ngFor -->
+<!-- <button (click)="onAdd()">Add</button>
+<ul>
+  <li *ngFor="let course of courses; index as i;">
+    {{ i }} - {{ course.name }}
+    <button (click)="onRemove(course)">Remove</button>
+  </li>
+</ul> -->
+
+<!-- <ul>
+  <li *ngFor="let course of courses; even as i">
+    {{ i }} - {{ course.name }} <span *ngIf="i">Even</span>
+  </li>
+</ul> -->
+
+<!-- <input type="text" appInputFormat="'uppercase'" /> -->
+
+<!-- <app-zippy title="Shipping Details">
+  Shipping Details Content
+</app-zippy>
+
+<app-zippy title="Billing Details">
+  Billing Details Content
+</app-zippy> -->
+
+<!-- <contact-form></contact-form> -->
+<!-- <app-reactive></app-reactive> -->
+<!-- <app-course-form></app-course-form> -->
+<app-posts></app-posts>
+<!-- <app-new-course-form></app-new-course-form> -->
+
+<!-- <app-navbar></app-navbar> -->
+<!-- <app-password-form></app-password-form> -->
+
+<router-outlet></router-outlet>
+
+<!-- <style>
+  .class {
+      background-color: blue;
+    }
+</style> -->

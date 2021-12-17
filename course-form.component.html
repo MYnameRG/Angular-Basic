@@ -1,0 +1,6 @@
+<form>
+  <input type="text" (keyup.enter)="addTheCourse(course)" #course class="form-control">
+  <ul>
+    <li *ngForIn="let course of form.get('course')?.controls">{{ course }}</li>
+  </ul>
+</form>
